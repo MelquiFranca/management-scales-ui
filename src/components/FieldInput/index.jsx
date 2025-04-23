@@ -13,9 +13,9 @@ const FieldInput = ({
   children
 }) => {
   return (
-    <S.Field>
+    <S.Container>
       <S.FieldIcon>
-        <S.Image iconName size={25}/>
+        <S.Image iconName size={25}></S.Image>
       </S.FieldIcon>
       <S.Input>
         <S.Label>{label}</S.Label>
@@ -27,7 +27,7 @@ const FieldInput = ({
           value={value}
         />}
       </S.Input>
-    </S.Field>
+    </S.Container>
   )
 }
 
