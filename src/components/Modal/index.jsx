@@ -1,4 +1,4 @@
-import * as S from './style.js'
+import * as S from './style'
 
 const Modal = ({ visible = false, setVisible, title, message, redirectTo = null, navigation, children }) => {
   const onClose = () => {
@@ -7,7 +7,7 @@ const Modal = ({ visible = false, setVisible, title, message, redirectTo = null,
       navigation.navigate(redirectTo, { updated: true })
     }
   }
-  return visible && <S.Container>
+  return visible && (children || <S.Container>
     <S.Title>
       {title}
     </S.Title>
@@ -20,6 +20,6 @@ const Modal = ({ visible = false, setVisible, title, message, redirectTo = null,
         Clique para Fechar
       </S.ButtonClose>
     </S.Actions>
-  </S.Container>
+  </S.Container>)
 }
 export default Modal

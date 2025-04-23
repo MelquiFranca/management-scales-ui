@@ -1,5 +1,5 @@
 // import Icons from 'react-native-vector-icons/FontAwesome5'
-import * as S from './style.js'
+import * as S from './style'
 
 const FieldInput = ({
   label,

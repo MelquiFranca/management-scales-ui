@@ -18,13 +18,13 @@ export const Title = styled.div`
   align-items: center;
   justify-content: center;
   color: ${COLORS.secondaryFont};
-  font-size: 1.6rem;
+  font-size: 1.4rem;
 `
 export const Message = styled.div`
   flex: 3;
   align-items: center;
   justify-content: center;
-  font-size: 1.2rem;
+  font-size: 1rem;
   color: ${COLORS.primaryFont};
   text-align: center;
 `
@@ -33,7 +33,7 @@ export const Actions = styled.div`
 export const ButtonClose = styled.button`
   padding: 20px 30px;
   border: none;
-  border-radius: 10;
+  border-radius: 10px;
   border-color: ${COLORS.gray};
   justify-content: center;
   align-items: center;

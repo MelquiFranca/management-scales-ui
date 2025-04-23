@@ -1,4 +1,4 @@
-import * as S from './style.js'
+import * as S from './style'
 const ViewContent = ({ children }) => {
   return <S.ViewContent>
     {children}
