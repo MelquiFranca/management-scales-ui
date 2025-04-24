@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import FieldInput from '@/components/FieldInput'
 import ViewContent from '@/components/ViewContent'
 import ImageIcon from '../../../public/assets/icon.png'
@@ -14,9 +14,30 @@ export default function Page () {
   const [modalMessage, setModalMessage] = useState('')
   const [modalVisible, setModalVisible] = useState(false)
   const [modalAlertVisible, setModalAlertVisible] = useState(false)
+  const [modalTitle, setModalTitle] = useState('')
   const [redirectTo, setRedirectTo] = useState(null)
+  // const { setItem } = useAsyncStorage('@loggedMember')
+  // const { setLoggedMember } = useContext(HandleLoadLoggedMembersContext)
+  useEffect(() => {
+    // subscription()
+  }, [])
+  const showModal = ({ message, title, success }) => {
+    setModalMessage(message)
+    setModalTitle(title)
+    setModalVisible(true)
+    setRedirectTo(success ? 'Escalas' : null)
+  }
   const handleLogin = async () => {
-    setModalAlertVisible(true)  
+    setModalAlertVisible(true)
+    // const result = await MembersService.validateLogin({ email, password })
+    // if(result.success) {
+    //   setItem(JSON.stringify(result.data))
+    //   setLoggedMember(result.data)
+    //   setModalAlertVisible(false)
+    //   setTimeout(() => navigation.navigate('Main'), 200)
+    //   return
+    // }
+    // showModal(result)
     setModalAlertVisible(false)
   }
   return (<ViewContent>
@@ -26,11 +47,11 @@ export default function Page () {
       redirectTo={redirectTo}
       navigation={navigation}
       message={modalMessage}
-      title='Login'
+      title={modalTitle}
     />
     <AlertMessage
       message='Aguarde enquanto validamos seu login...'
-      title='Login'
+      title={modalTitle}
       visible={modalAlertVisible}
       setVisible={setModalAlertVisible}
       activeActions={false}
