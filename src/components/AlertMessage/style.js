@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { COLORS } from '../utils'
 
 export const Container = styled.div`
   position: absolute;
@@ -8,22 +7,22 @@ export const Container = styled.div`
   left: 5%;
   width: 90%;
   height: 300px;
-  background-color: ${COLORS.primary};
+  background-color: ${({ theme }) => theme.primary};
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  border-color: ${COLORS.primaryFont};
+  border-color: ${({ theme }) => theme.primaryFont};
 `
 export const Title = styled.div`
   flex: 1;
   justify-content: center;
-  color: ${COLORS.primaryFont};
+  color: ${({ theme }) => theme.primaryFont};
   font-size: 1.4rem;
   font-weight: bold;
 `
 export const Message = styled.div`
   justify-content: center;
-  color: ${COLORS.primaryFont};
+  color: ${({ theme }) => theme.primaryFont};
   font-size: 1rem;
   text-align: center;
 `
@@ -34,14 +33,14 @@ export const GroupButtonAction = styled.div`
   align-items: center;
 `
 export const ActionButtonConfirm = styled.div`
-  background-color: ${COLORS.red};
+  background-color: ${({ theme }) => theme.red};
   padding: 10px 20px;
   text-align: center;
-  color: ${COLORS.primaryFont};
+  color: ${({ theme }) => theme.primaryFont};
 `
 export const ActionButtonCancel = styled.div`
-  background-color: ${COLORS.secondary};
+  background-color: ${({ theme }) => theme.secondary};
   padding: 10px 20px;
   text-align: center;
-  color: ${COLORS.primaryFont};
+  color: ${({ theme }) => theme.primaryFont};
 `

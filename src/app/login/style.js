@@ -1,13 +1,12 @@
 'use client'
-import { COLORS } from "@/components/utils"
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const Container = styled.div`
   padding: 50px 20px;
   flex-direction: column;
   justify-content: space-around;
   flex: 1;
-  height: 100vh;
+  height: 100dvh;
 `
 export const Image = styled.image`
   flex: 1;
@@ -17,5 +16,5 @@ export const Image = styled.image`
   align-self: center;
   // margin-bottom: 30px;
   // border-radius: 100px;
-  border-color: ${COLORS.primary};
+  border-color: ${({ theme }) => theme.primary};
 `

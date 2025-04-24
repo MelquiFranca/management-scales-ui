@@ -1,9 +1,8 @@
 'use client'
 import styled from "styled-components"
-import { COLORS } from "../utils"
 
 export const Container = styled.div`
-  background-color: ${COLORS.secondary};
+  background-color: ${({ theme }) => theme.secondary};
   flex-direction: row;
   align-items: center;
   gap: 10px;
@@ -18,24 +17,24 @@ export const Input = styled.div`
   border-width: 0 0 2px 0;
   gap: 5px;
   justify-content: flex-start;
-  border-color: ${COLORS.primary};
-  background-color: ${COLORS.secondary};
+  border-color: ${({ theme }) => theme.primary};
+  background-color: ${({ theme }) => theme.secondary};
 `
 export const Label = styled.div`
   padding: 5px 0;
   min-width: 50px;
-  color: ${COLORS.primaryFont};
+  color: ${({ theme }) => theme.primaryFont};
   font-size: 1rem;
 `
 export const InputText = styled.input`
   font-size: 1rem;
-  color: ${COLORS.primaryFont};
-  background-color: ${COLORS.secondary};
+  color: ${({ theme }) => theme.primaryFont};
+  background-color: ${({ theme }) => theme.secondary};
   padding: 2px 0;
   border: none;
-  border-bottom: 1px solid ${COLORS.secondaryBorder};
+  border-bottom: 1px solid ${({ theme }) => theme.secondaryBorder};
 `
 export const Image = styled.image`
-  color: ${COLORS.red};
+  color: ${({ theme }) => theme.red};
   width: 40px;
 `

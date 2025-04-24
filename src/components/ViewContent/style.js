@@ -1,9 +1,8 @@
 'use client'
-import styled from "styled-components"
-import { COLORS } from "../utils"
+import styled from 'styled-components'
 
 export const ViewContent = styled.div`
   flex-direction: column;
-  background-color: ${COLORS.secondary};
+  background-color: ${({ theme }) => theme.secondary};
   flex: 1;
 `
