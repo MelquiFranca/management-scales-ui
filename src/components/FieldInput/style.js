@@ -34,7 +34,7 @@ export const InputText = styled.input`
   border: none;
   border-bottom: 1px solid ${({ theme }) => theme.secondaryBorder};
 `
-export const Image = styled.image`
+export const Image = styled.img`
   color: ${({ theme }) => theme.red};
   width: 40px;
 `

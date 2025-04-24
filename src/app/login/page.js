@@ -58,7 +58,7 @@ export default function Page () {
       customizeStyle={{ height: '60%' }}
     />
     <S.Container>
-      <S.Image src={ImageIcon} />
+      <S.Image src={ImageIcon.src} />
       <FieldInput
         iconName='user'
         label='Email'

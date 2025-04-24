@@ -8,7 +8,7 @@ export const Container = styled.div`
   flex: 1;
   height: 100dvh;
 `
-export const Image = styled.image`
+export const Image = styled.img`
   flex: 1;
   border: 1px solid red;
   height: 640px;
