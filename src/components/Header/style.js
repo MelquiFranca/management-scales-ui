@@ -5,7 +5,7 @@ export const Container = styled.div`
   position: fixed:
   top: 0;
   align-items: center;
-  gap: 10px;
+  gap: 40px;
 `
 export const ListGroups = styled.select`
   flex: 1;
@@ -14,7 +14,6 @@ export const ListGroups = styled.select`
   color: ${({ theme }) => theme.primaryFont};
   font-size: 1.4rem;
   font-weight: bold;
-  border: none;
 `
 export const GroupNameItem = styled.option`
 `
@@ -27,7 +26,6 @@ export const Image = styled.img`
 export const Avatar = styled.button`
   height: 50px;
   width: 50px;
-  border: none;
   background: none;
 `
 

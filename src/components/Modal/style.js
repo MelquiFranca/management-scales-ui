@@ -31,7 +31,6 @@ export const Actions = styled.div`
 `
 export const ButtonClose = styled.button`
   padding: 20px 30px;
-  border: none;
   border-radius: 10px;
   border-color: ${({ theme }) => theme.gray};
   justify-content: center;

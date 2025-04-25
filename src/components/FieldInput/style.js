@@ -31,7 +31,6 @@ export const InputText = styled.input`
   color: ${({ theme }) => theme.primaryFont};
   background-color: ${({ theme }) => theme.secondary};
   padding: 2px 0;
-  border: none;
   border-bottom: 1px solid ${({ theme }) => theme.secondaryBorder};
 `
 export const Image = styled.img`

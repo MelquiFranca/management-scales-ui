@@ -20,3 +20,7 @@ body {
 div {
   display: flex;
 }
+
+button, select {
+  border: none;
+}

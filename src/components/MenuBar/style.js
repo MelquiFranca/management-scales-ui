@@ -13,7 +13,6 @@ export const Button = styled.button`
   flex: 1;
   padding: 15px;
   background: none;
-  border: none;
   color: ${({ theme }) => theme.primaryFont};
   font-size: 1rem;
   display: flex;
