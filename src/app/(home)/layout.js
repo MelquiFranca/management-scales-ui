@@ -10,7 +10,7 @@ const mockGroup = {
 const mockUser = {
   name: 'Sunda Foo'
 }
-export default function HomeLayout ({ children }) {
+export default function Layout ({ children }) {
   // const { setActiveScreen } = useContext(HandleCreateContext)
   // const { loggedMember } = useContext(HandleLoadLoggedMembersContext)
   // const { type, groupId } = loggedMember
