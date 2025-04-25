@@ -6,14 +6,13 @@ export const Container = styled.div`
   left: 0;
   height: 100%;
   width: 100%;
-  padding: 10px;
 `
 export const ContentMessages =  styled.div`
   flex: 4;
   flex-direction: column;
   align-items: flex-end;
   gap: 20px;
-  padding: 10px;
+  padding: 50px 10px;
   overflow: auto;
 `
 export const InputText = styled.input`
@@ -44,13 +43,14 @@ export const CloseButton = styled.button`
 `
 export const ContainerActions = styled.div`
   width: 100%;
-  padding: 15px;
+  padding: 10px;
   gap: 10px;
   align-items: center;
   justify-content: space-between;
   position: fixed;
   bottom: 0;
   left: 0;
+  background-color: ${({ theme }) => theme.secondary};
 `
 export const Message = styled.div`
   background-color: ${({ theme }) => theme.primary};
@@ -65,4 +65,11 @@ export const SplitDate = styled.div`
   color: ${({ theme }) => theme.primaryFont};
   font-size: .7rem;
   border-radius: 15px;
+`
+export const Header = styled.div`
+  align-items: flex-start;
+  font-size: 1.4rem;
+  font-weight: bold;
+  padding: 8px;
+  border-bottom: 1px solid ${({ theme }) => theme.primary};
 `

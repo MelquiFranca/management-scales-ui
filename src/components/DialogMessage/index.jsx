@@ -19,7 +19,7 @@ const messagesMock = [
   },
 ]
 
-export default function DialogMessage ({ messages = messagesMock, visible, setVisible }) {
+export default function DialogMessage ({ date, messages = messagesMock, visible, setVisible }) {
   const [mapMessages, setMapMessages] = useState(new Map())
   const handleVisible = () => setVisible(!visible)
   useEffect(() => {
@@ -34,6 +34,9 @@ export default function DialogMessage ({ messages = messagesMock, visible, setVi
     setMapMessages(updatedMapMessages)
   }, [messages])
   return visible && <S.Container>
+    <S.Header>
+      Mensagens
+    </S.Header>
     <S.ContentMessages>
       {Array.from(mapMessages.keys()).map(date => {
         const data = mapMessages.get(date).map(({ content, id }) => <S.Message key={id}>
