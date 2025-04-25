@@ -10,6 +10,7 @@ export const Container = styled.div`
   padding: 10px;
   gap: 2px;
   background-color: ${({ theme }) => theme.secondary};
+  border-top: 1px solid ${({ theme }) => theme.primary};
 `
 export const Button = styled.button`
   flex: 1;

@@ -4,13 +4,14 @@ export const Container = styled.div`
   flex: 1;
   flex-direction: column;
   background-color: ${({ theme }) => theme.secondary};
-  width: 100%;
-  height: 100dvh;
+  width: 100vw;
+  height: 100vh;
   position: absolute;
   align-items: center;
   justify-content: center;
-  z-index: 10;
+  z-index: 15;
   padding: 20px 0;
+  top: 0;
 `
 export const Title = styled.div`
   flex: 1;
