@@ -63,3 +63,16 @@ export const formatDate = (date) => {
     { dateStyle: "short" }
   ).format(date)
 }
+export const getDay = (date = new Date()) => {
+  const dateDay = date.getDay()
+  const dayNames = [
+    'Domingo',
+    'Segunda',
+    'Terça',
+    'Quarta',
+    'Quinta',
+    'Sexta',
+    'Sábado',
+  ]
+  return dayNames[dateDay]
+}
