@@ -14,9 +14,9 @@ export default function FunctionMembers ({ functionName, memberIds, editable = f
   // const { functionsData = FUNCTIONS_ICONS } = firstGroup
   const { icon, name } = FUNCTIONS_ICONS[functionName]
   const [members, setMembers] = useState([{
-    _id: '607c72170171590015ff9c93',
+    _id: '123',
     photo: '',
-    name: 'Melqui'
+    name: 'Sunda'
   }])
   // useEffect(() => loadDataStorage({ get: getItem, set: setMembers }), [])
   return <S.Container>

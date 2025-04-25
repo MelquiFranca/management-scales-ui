@@ -8,8 +8,8 @@ import Avatar from '../Avatar'
 
 export default function CardScale ({
   _id,
-  // cult,
-  cultId,
+  // event,
+  eventId,
   annotations,
   rosteredMembers,
   handleRemoveRosteredMember,
@@ -22,12 +22,12 @@ export default function CardScale ({
 }) {
   // const { activeScreen, handleClick } = useContext(HandleCreateContext)
   // const { loggedMember: { type, groupId, _id: updatedSponsor }, groups: [firstGroup] } = useContext(HandleLoadLoggedMembersContext)
-  const { type, groupId, _id: updatedSponsor } = { type: true, groupId: '607c72020171590015ff9c92', _id: '607c72170171590015ff9c93' }
+  const { type, groupId, _id: updatedSponsor } = { type: true, groupId: '111', _id: '123' }
   const [expanded, setExpanded] = useState(true)
   // const [visibleAnnotation, setVisibleAnnotation] = useState(false)
-  const [cultDate, setFormattedDate] = useState(null)
+  const [eventDate, setFormattedDate] = useState(null)
   // const { functionsData = FUNCTIONS_ICONS } = firstGroup
-  const cult = {
+  const event = {
     date: new Date(),
     dayShift: 'noite'
   }
@@ -46,9 +46,9 @@ export default function CardScale ({
     // setVisibleAnnotation(true)
   }
   useEffect(() => {
-    const date = cult?.date && formatDate(new Date(cult?.date))
+    const date = event?.date && formatDate(new Date(event?.date))
     setFormattedDate(date)
-  }, [cult])
+  }, [event])
   useEffect(() => setExpanded(expandCard), [])
   return (<S.Container>
     {/* <AnnotationEditor
@@ -57,7 +57,7 @@ export default function CardScale ({
       scaleId={_id}
       editable={hasMemberWithPermissionEdit()}
       setVisible={setVisibleAnnotation}
-      cultDate={cultDate}
+      eventDate={eventDate}
       rosteredMembers={rosteredMembers}
       handleAnnotationNewScale={handleAnnotationNewScale}
       updatedSponsor={updatedSponsor}
@@ -66,8 +66,8 @@ export default function CardScale ({
     /> */}
     <S.Header>
       <Avatar size={25}/>
-      <S.HeaderItem>{cultDate || cult?.date && formatDate(new Date(cult?.date))}</S.HeaderItem>
-      <S.HeaderItem>{cult?.dayShift}</S.HeaderItem>
+      <S.HeaderItem>{eventDate || event?.date && formatDate(new Date(event?.date))}</S.HeaderItem>
+      <S.HeaderItem>{event?.dayShift}</S.HeaderItem>
       <S.HeaderButton onClick={handleExpandToggle}>
         v
         {/* <Icon name={expanded ? 'expand-less': 'expand-more'} size={30} color={COLORS.primaryFont} /> */}
@@ -91,7 +91,7 @@ export default function CardScale ({
         {(editable && type)
           && <S.EditButton
               fullEdit={true}
-              // onClick={() => handleClick(activeScreen, { ...cult, cultId, rosteredMembers, _id, annotations }, navigation)}
+              // onClick={() => handleClick(activeScreen, { ...event, eventId, rosteredMembers, _id, annotations }, navigation)}
             >
           {/* <IconCommunity name='circle-edit-outline' size={25} color={COLORS.gray}/> */}
         </S.EditButton>}
