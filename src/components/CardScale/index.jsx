@@ -18,13 +18,13 @@ export default function CardScale ({
   expandCard = false,
   editable = false,
   membersEditable = false,
-  highlightMember = false
+  highlightMember = false,
+  handleVisibleMessages
 }) {
   // const { activeScreen, handleClick } = useContext(HandleCreateContext)
   // const { loggedMember: { type, groupId, _id: updatedSponsor }, groups: [firstGroup] } = useContext(HandleLoadLoggedMembersContext)
   const { type, groupId, _id: updatedSponsor } = { type: true, groupId: '111', _id: '123' }
   const [expanded, setExpanded] = useState(true)
-  // const [visibleAnnotation, setVisibleAnnotation] = useState(false)
   const [eventDate, setFormattedDate] = useState(null)
   // const { functionsData = FUNCTIONS_ICONS } = firstGroup
   const event = {
@@ -41,9 +41,6 @@ export default function CardScale ({
   }
   const handleExpandToggle = () => {
     setExpanded(!expanded)
-  }
-  const handleUpdateAnnotation = () => {
-    // setVisibleAnnotation(true)
   }
   useEffect(() => {
     const date = event?.date && formatDate(new Date(event?.date))
@@ -85,14 +82,16 @@ export default function CardScale ({
         )}
       </S.Content>
       <S.Footer>
-        <S.EditButton onClick={() => handleUpdateAnnotation({ navigation })}>
+        <S.EditButton onClick={() => handleVisibleMessages(true)}>
           {/* <IconCommunity name='book-edit-outline' size={25} color={COLORS.gray}/> */}
+          Messages
         </S.EditButton>
         {(editable && type)
           && <S.EditButton
               fullEdit={true}
               // onClick={() => handleClick(activeScreen, { ...event, eventId, rosteredMembers, _id, annotations }, navigation)}
             >
+              Edit Scale
           {/* <IconCommunity name='circle-edit-outline' size={25} color={COLORS.gray}/> */}
         </S.EditButton>}
       </S.Footer>

@@ -1,8 +1,10 @@
 'use client'
-// import {useContext, useEffect, useState } from 'react'
+import {useContext, useEffect, useState } from 'react'
 import ViewContent from '@/components/ViewContent'
 import CardScale from '@/components/CardScale'
 import * as S from './style'
+import DialogMessage from '@/components/DialogMessage'
+import Modal from '@/components/Modal'
 
 const scales = [
 {
@@ -65,6 +67,7 @@ const scales = [
   groupId:  '111',
 },] // MOCK
 export default function Page ({ navigation }) {
+  const [visibleMessages, setVisibleMessages] = useState(false)
   // const { scales, setScales } = useContext(HandleScalesContext)
   // const { events, setEvents } = useContext(HandleEventsContext)
   // const { getItem: getItemScales } = useAsyncStorage('@scales')
@@ -80,17 +83,21 @@ export default function Page ({ navigation }) {
   //   }
   // }, [params])
   return (<ViewContent>
+    <Modal visible={visibleMessages} title='Mensagens'>
+      <DialogMessage visible={visibleMessages} setVisible={setVisibleMessages}/>
+    </Modal>
     <S.Container>
       {scales?.map((scale, key) => 
         <S.WrapperScale key={key}>
           <CardScale
             {...scale}
-            event={[]?.find(c => c._id === scale.eventId)}
+            event={[]?.find(c => c._id === scale.eventId)} // TO DO
             annotations={scale.annotations}
             navigation={navigation}
             editable={true}
             membersEditable={false}
             highlightMember={true}
+            handleVisibleMessages={setVisibleMessages}
           />
         </S.WrapperScale>
       )}

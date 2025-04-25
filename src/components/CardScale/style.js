@@ -57,4 +57,5 @@ export const EditButton = styled.button`
   border-radius: 5px;
   width: 25px;
   height: 25px;
+  color: ${({ theme }) => theme.primaryFont};
 `
