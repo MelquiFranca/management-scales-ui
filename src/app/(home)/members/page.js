@@ -28,7 +28,6 @@ export default function Page ({ navigation }) {
   //   if(params?.updated) loadDataStorage({ get: getItem, set: setMembers })
   // }, [params])
   return (<ViewContent>
-    <h3>Membros</h3>
     <S.Container>
     {members?.map((member, index) =>
       <S.WrapperMember key={index}>
