@@ -13,10 +13,13 @@ export const Container = styled.div`
   align-items: center;
   align-content: center;
   text-align: center;
-  gap: 10;
-  padding: 5;
-  border-radius: 5;
+  gap: 10px;
+  padding: 5px;
+  border-radius: 5px;
   flex: 1;
   color: ${({ theme }) => theme.gray};
   font-size: 16;
+`
+export const Name = styled.div`
+  font-size: 1rem;
 `
