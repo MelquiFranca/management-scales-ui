@@ -2,8 +2,9 @@
 import { useContext } from "react"
 // import { HandleCreateContext, HandleLoadLoggedMembersContext } from "../contexts"
 import * as S from './style'
+import Avatar from "../Avatar"
 
-export default function Member ({ data, activeAction = true, navigation, highlight }) {
+export default function Member ({ data, activeAction = true, navigation, highlight, sizeImage = 35 }) {
   // const { activeScreen, handleClick } = useContext(HandleCreateContext)
   // const { loggedMember: { type, _id: loggedId } } = useContext(HandleLoadLoggedMembersContext)
   const handleOnPress = () => {
@@ -12,24 +13,10 @@ export default function Member ({ data, activeAction = true, navigation, highlig
   }
   return (
     <S.Container
-      // style={{ ...styles.contentInline, ...customizedStyle?.container, ...(highlight && loggedId === data?._id && { backgroundColor: COLORS.primary }) }}
       onClick={handleOnPress}
     >
-      {
-      // data?.photo ? 
-      <S.Image
-        source={data.photo || ''}
-        // style={{ ...styles?.photo, ...customizedStyle?.photo }}
-      />
-      // : <View style={{ ...styles?.photo, ...customizedStyle?.photo }}>
-      //   <Icons
-      //     name='user'
-      //     size={30}
-      //     color={COLORS.secondaryFont}
-      //   />
-      // </View>
-      }
-      {data?.name}
+      <Avatar size={sizeImage} image={data?.photo}/>
+      <S.Name>{data?.name}</S.Name>
     </S.Container>
     )
 }
