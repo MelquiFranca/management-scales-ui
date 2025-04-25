@@ -78,7 +78,7 @@ export default function Page () {
       <ActionButtonsBlock
         iconName='door-open'
         handleClick={handleLogin}
-        title='Fazer Login'
+        title='Entrar'
       />
     </S.Container>
   </ViewContent>)

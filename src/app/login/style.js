@@ -2,17 +2,19 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  padding: 50px 20px;
+  padding: 0px 20px;
   flex-direction: column;
-  justify-content: space-around;
+  justify-content: center;
+  align-items: center;
   flex: 1;
-  height: 100dvh;
+  height: 100%;
+  gap: 30px;
 `
 export const Image = styled.img`
   flex: 1;
   border: 1px solid red;
-  height: 640px;
-  width: 640px;
+  height: 100px;
+  width: 100%;
   align-self: center;
   // margin-bottom: 30px;
   // border-radius: 100px;
