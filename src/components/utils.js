@@ -55,3 +55,11 @@ export const FUNCTIONS_ICONS = {
 }
 export const GROUP_NAME = ''
 export const INTERVAL_DATE_CACHE = -10
+
+export const formatDate = (date) => {
+  if (!date) return ''
+  return Intl.DateTimeFormat(
+    'pt-BR',
+    { dateStyle: "short" }
+  ).format(date)
+}
