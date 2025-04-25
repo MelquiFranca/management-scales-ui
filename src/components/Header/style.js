@@ -17,15 +17,3 @@ export const ListGroups = styled.select`
 `
 export const GroupNameItem = styled.option`
 `
-export const Image = styled.img`
-  flex: 1;
-  height: 100%;
-  width: 100%;
-  border-radius: 50%;
-`
-export const Avatar = styled.button`
-  height: 50px;
-  width: 50px;
-  background: none;
-`
-

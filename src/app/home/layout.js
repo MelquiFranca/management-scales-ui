@@ -8,8 +8,7 @@ const mockGroup = {
   name: 'Group Bobra'
 }
 const mockUser = {
-  name: 'Sunda Foo',
-  image: ImageMock.src
+  name: 'Sunda Foo'
 }
 export default function HomeLayout ({ children }) {
   // const { setActiveScreen } = useContext(HandleCreateContext)

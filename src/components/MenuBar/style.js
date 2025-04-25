@@ -5,9 +5,11 @@ export const Container = styled.div`
   flex: 1;
   position: fixed;
   bottom: 0;
+  left: 0;
   width: 100%;
   padding: 10px;
   gap: 2px;
+  background-color: ${({ theme }) => theme.secondary};
 `
 export const Button = styled.button`
   flex: 1;
