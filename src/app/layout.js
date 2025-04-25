@@ -2,6 +2,7 @@
 import { Geist, Geist_Mono } from 'next/font/google'
 import './globals.css'
 import { ThemeProvider } from 'styled-components'
+import * as S from './style'
 import { COLORS } from '@/components/utils'
 
 const geistSans = Geist({
@@ -17,9 +18,9 @@ export default function RootLayout({ children }) {
   return (
     <ThemeProvider theme={{ ...COLORS }}>
       <html lang='pt-Br'>
-        <body>
+        <S.Body>
           {children}
-        </body>
+        </S.Body>
       </html>
     </ThemeProvider>
   )
