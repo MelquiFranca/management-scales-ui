@@ -32,7 +32,7 @@ export default function Page ({ params }) {
   const [modalTitle, setModalTitle] = useState('')
   const [redirectTo, setRedirectTo] = useState(null)
   const [editable, setEditable] = useState(true)
-  // const { setItem: setCultsList } = useAsyncStorage('@cults')
+  // const { setItem: setEventsList } = useAsyncStorage('@events')
   // const { loggedMember: { groupId, _id: updatedSponsor } } = useContext(HandleLoadLoggedMembersContext)
 
   const showModal = ({ message, title, success }) => {
@@ -50,7 +50,7 @@ export default function Page ({ params }) {
       updatedSponsor
     })
     if(result.success) {
-      await updateDateStorage({ service: CultsService, set: setCultsList, groupId })
+      await updateDateStorage({ service: CultsService, set: setEventsList, groupId })
     }
     showModal(result)
   }
@@ -63,7 +63,7 @@ export default function Page ({ params }) {
     // })
     // const result = await CultsService.deleteItem(params._id)
     // if(result.success) {
-    //   await updateDateStorage({ service: CultsService, set: setCultsList, groupId })
+    //   await updateDateStorage({ service: CultsService, set: setEventsList, groupId })
     // }
     setModalAlertVisible(false)
     // showModal(result)

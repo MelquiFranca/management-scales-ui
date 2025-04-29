@@ -6,7 +6,7 @@ export const ContentGroup = styled.div`
 `
 export const Container = styled.div`
   flex: 1;
-  border: 2px solid ${({ theme }) => theme.primary};
+  border: 1px solid ${({ theme }) => theme.primary};
   border-radius: 5px;
   flex-direction: column;
   overflow: auto;
@@ -32,6 +32,7 @@ export const HeaderButton = styled.button`
   width: 30px;
   height: 30px;
   justify-content: center;
+  border-radius: 4px;
 `
 export const Content = styled.div`
   flex: 1;

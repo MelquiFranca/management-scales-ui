@@ -9,6 +9,6 @@ export const Container = styled.div`
 export const WrapperMember = styled.div`
   padding: 8px;
   border-radius: 5px;
-  border: 2px solid ${({ theme }) => theme.primary};
+  border: 1px solid ${({ theme }) => theme.primary};
   background-color: ${({ theme }) => theme.secondary};
 `
