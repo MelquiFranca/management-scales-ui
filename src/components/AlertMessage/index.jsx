@@ -8,11 +8,11 @@ const AlertMessage = ({ visible, setVisible, message, title, handleConfirm, acti
       <S.Message>{message}</S.Message>
       <S.GroupButtonAction>
       {activeActions && <><S.ActionButtonConfirm
-          onPress={handleConfirm}
+          onClick={handleConfirm}
         >Confirmar
         </S.ActionButtonConfirm>
         <S.ActionButtonCancel
-          onPress={() => setVisible(false)}
+          onClick={() => setVisible(false)}
         >Cancelar
         </S.ActionButtonCancel></>}
       </S.GroupButtonAction>
