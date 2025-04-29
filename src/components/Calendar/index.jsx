@@ -131,13 +131,12 @@ export default function Calendar ({ handleDate, visible, setVisible }) {
                 data={}
                 renderItem={Item}
               /> */}
-              {calendarValues.map((data) => <Item item={data}/>)}
+              {calendarValues.map((data, index) => <Item key={index} item={data}/>)}
             </S.CalendarContent>
           </S.Content>
         </S.Calendar>
         <S.Actions>
           <S.ActionButtonConfirm
-           
             onClick={handleClickConfirm}
           >
             Confirmar
