@@ -8,7 +8,7 @@ export const SaveButton = styled.button`
   background-color: ${({ theme }) => theme.red};
   padding: 10px 20px;
   color: ${({ theme }) => theme.primaryFont};
-  font-size: 1.4rem;
+  font-size: 1.2rem;
 `
 export const Container = styled.div`
   padding: 10;

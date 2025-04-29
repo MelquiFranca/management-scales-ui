@@ -6,6 +6,7 @@ export const Container = styled.div`
   flex-direction: row;
   align-items: center;
   gap: 10px;
+  padding: 10px 0;
 `
 export const FieldIcon = styled.div`
   align-items: center;
@@ -17,6 +18,7 @@ export const Input = styled.div`
   border-width: 0 0 2px 0;
   gap: 5px;
   justify-content: flex-start;
+  flex-direction: column;
   border-color: ${({ theme }) => theme.primary};
   background-color: ${({ theme }) => theme.secondary};
 `
@@ -36,4 +38,8 @@ export const InputText = styled.input`
 export const Image = styled.img`
   color: ${({ theme }) => theme.red};
   width: 40px;
+`
+export const Separator = styled.hr`
+  width: 100%;
+  border: 1px solid ${({ theme }) => theme.primary};
 `

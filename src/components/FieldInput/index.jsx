@@ -15,7 +15,7 @@ const FieldInput = ({
   return (
     <S.Container>
       <S.FieldIcon>
-        <S.Image iconName size={25}></S.Image>
+        {/* <S.Image iconName size={25}></S.Image> */}
       </S.FieldIcon>
       <S.Input>
         <S.Label>{label}</S.Label>
@@ -26,6 +26,7 @@ const FieldInput = ({
           onChange={({ target }) => setValue(target.value)}
           value={value}
         />}
+      <S.Separator />
       </S.Input>
     </S.Container>
   )

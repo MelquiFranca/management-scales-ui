@@ -188,9 +188,9 @@ export default function Page ({ navigation }) {
   const handleClickEdit = () => {
     setActivatedConfig(true)
   }
-  const changeAvaliableList = (cultId, add = true) => {
-    if (add) unavaliableCultList.add(cultId)
-    else unavaliableCultList.delete(cultId)
+  const changeAvaliableList = (eventId, add = true) => {
+    if (add) unavaliableCultList.add(eventId)
+    else unavaliableCultList.delete(eventId)
     setUnavaliableCultList(unavaliableCultList)
   }
   // useEffect(() => {

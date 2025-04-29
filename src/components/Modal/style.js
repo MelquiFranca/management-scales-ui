@@ -4,8 +4,8 @@ export const Container = styled.div`
   flex: 1;
   flex-direction: column;
   background-color: ${({ theme }) => theme.secondary};
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   position: absolute;
   align-items: center;
   justify-content: center;
