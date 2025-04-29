@@ -1,20 +1,22 @@
 import styled from 'styled-components'
 
 export const Container = styled.div`
-  // background-color: ${({ theme }) => theme.primary};
   flex: 1;
   justify-content: center;
   align-items: center;
   padding: 0 5px;
   flex-direction: column;
 `
-export const Calendar = styled.div`
-  flex: 8;
+export const Title = styled.div`
+  align-items: center;
   justify-content: center;
-  // min-height: 70%;
-  // max-height: 80%;
-  // maxWidth: 100%;
-  // width: 100%;
+  flex: 1;
+  font-size: 1.6rem;
+  font-weight: bold;
+`
+export const Calendar = styled.div`
+  flex: 5;
+  justify-content: center;
   flex-direction: column;
 `
 export const Content = styled.div`
@@ -91,7 +93,7 @@ export const HeaderTitle = styled.div`
   fontWeight: bold;
   color: ${({ theme }) => theme.primaryContrast};
 `
-export const DayItem = styled.div`
+export const DayItem = styled.button`
   background-color: ${({ theme }) => theme.secondary};
   width: 42px;
   height: 42px;
@@ -101,13 +103,24 @@ export const DayItem = styled.div`
   margin: 6px 2px;
   border-width: 0.5;
   border: 1px solid ${({ theme }) => theme.primary};
+  color: ${({ theme }) => theme.primaryFont};
 `
 export const DayNull = styled.div`
+  color: ${({ theme }) => theme.primaryFont};
   background-color: ${({ theme }) => theme.secondary};
   width: 42px;
   height: 42px;
   margin: 6px 2px;
 `
-export const SelectedDay = styled.div`
+export const SelectedDay = styled.button`
+  color: ${({ theme }) => theme.primaryFont};
+  width: 42px;
+  height: 42px;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
+  margin: 6px 2px;
+  border-width: 0.5;
+  border: 1px solid ${({ theme }) => theme.primary};
   background-color: ${({ theme }) => theme.red};
 }`

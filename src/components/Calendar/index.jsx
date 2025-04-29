@@ -69,16 +69,20 @@ export default function Calendar ({ handleDate, visible, setVisible }) {
     setQuantityDaysOfMonth(days)
   }, [selectedDay, selectedMonth, selectedYear])
   useEffect(() => setCalendarValues(getCalendarValues()), [date, quantityDaysOfMonth])
-  const Item = ({ item }) => (<S.DayItem
-    // disabled={!item}
-    key={item}
-    onClick={() => handleClickCalendarDay(item)}
-  >{item}</S.DayItem>)
+  const Item = ({ item }) => {
+    if (!item) return <S.DayNull></S.DayNull>
+    const TypeItem = selectedDay === item ? S.SelectedDay : S.DayItem
+    return <TypeItem
+      key={item}
+      onClick={() => handleClickCalendarDay(item)}
+    >{item}</TypeItem>
+  }
   return (
     <Modal
       visible={visible}
     >
       <S.Container>
+        <S.Title>Calendário</S.Title>
         <S.Calendar>
           <S.Content>
             <S.Filter>
