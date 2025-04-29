@@ -4,8 +4,8 @@ export const Container = styled.button`
   padding: 4px 10px;
   justify-content: center;
   align-items: center;
-  border-radius: 5px;
+  border-radius: 2px;
   gap: 5px;
-  background-color: ${({ theme }) => theme.primary};
-  color: ${({ theme }) => theme.red};
+  background-color: ${({ theme }) => theme.red};
+  color: ${({ theme }) => theme.primaryFont};
 `
