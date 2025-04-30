@@ -75,7 +75,7 @@ export default function Page ({ params }) {
   //     setDate(params?.date ? new Date(params.date) : new Date())
   //   }
   // }, [])
-  return <ViewContent visible={true}>
+  return <ViewContent allDisplay>
     <Modal
       visible={modalVisible}
       setVisible={setModalVisible}
