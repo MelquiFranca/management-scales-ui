@@ -1,6 +1,6 @@
 import * as S from './style'
-const ViewContent = ({ children }) => {
-  return <S.ViewContent>
+const ViewContent = ({ children, allDisplay }) => {
+  return <S.ViewContent allDisplay={allDisplay}>
     {children}
   </S.ViewContent>
 }
