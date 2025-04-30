@@ -5,7 +5,7 @@ export const Container = styled.div`
   background-color: ${({ theme }) => theme.secondary};
   flex-direction: row;
   align-items: center;
-  gap: 10px;
+  gap: 5px;
   padding: 10px 0;
 `
 export const FieldIcon = styled.div`

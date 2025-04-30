@@ -1,7 +1,6 @@
-import styled from "styled-components"
+import styled from 'styled-components'
 
 export const SaveButton = styled.button`
-  flex-direction: row;
   align-items: center;
   justify-content: center;
   gap: 20px;
@@ -11,10 +10,12 @@ export const SaveButton = styled.button`
   font-size: 1.2rem;
 `
 export const Container = styled.div`
-  padding: 10;
+  background-color: ${({ theme }) => theme.secondary};
+  padding: 10px;
+  border-top: 1px solid ${({ theme }) => theme.primary};
   justify-content: center;
   align-items: center;
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
 `
