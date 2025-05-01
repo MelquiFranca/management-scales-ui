@@ -15,11 +15,9 @@ export const FieldIcon = styled.div`
 export const Input = styled.div`
   flex: 1;
   padding: 0 5px;
-  border-width: 0 0 2px 0;
   gap: 5px;
   justify-content: flex-start;
   flex-direction: column;
-  border-color: ${({ theme }) => theme.primary};
   background-color: ${({ theme }) => theme.secondary};
 `
 export const Label = styled.div`
@@ -33,7 +31,7 @@ export const InputText = styled.input`
   color: ${({ theme }) => theme.primaryFont};
   background-color: ${({ theme }) => theme.secondary};
   padding: 2px 0;
-  border-bottom: 1px solid ${({ theme }) => theme.secondaryBorder};
+  border: none;
 `
 export const Image = styled.img`
   color: ${({ theme }) => theme.red};
