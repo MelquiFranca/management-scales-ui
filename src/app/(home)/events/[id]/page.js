@@ -98,36 +98,29 @@ export default function Page ({ params }) {
       />}
     </SeparatorContext>
     <S.Container>
-      <S.Form>
-        <FieldInput
-          label='Dia do Evento'
-          iconName='calendar'
-          >
-            {/* <FieldDate
-              date={date}
-              handleDate={setDate}
-              setVisible={setCalendarVisible}
-              visible={calendarVisible}
-            /> */}
-            <S.ContainerCalendar onClick={() => setCalendarVisible(true)}>
-              <S.Label>
-                {date.toLocaleDateString()}
-              </S.Label>
-            </S.ContainerCalendar>
-        </FieldInput>
-        <FieldInput
-          label='Período do Evento'
-          iconName='clock'
+      <FieldInput
+        label='Dia do Evento'
+        iconName='calendar'
         >
-          <S.SelectShiftDay
-            value={dayShift}
-            onChange={setDayShift}>
-            <S.OptionShiftDay label='Manhã' value='Manhã' />
-            <S.OptionShiftDay label='Tarde' value='Tarde' />
-            <S.OptionShiftDay label='Noite' value='Noite' />
-          </S.SelectShiftDay>
-        </FieldInput>
-      </S.Form>
+          <FieldDate
+            date={date}
+            handleDate={setDate}
+            setVisible={setCalendarVisible}
+            visible={calendarVisible}
+          />
+      </FieldInput>
+      <FieldInput
+        label='Período do Evento'
+        iconName='clock'
+      >
+        <S.SelectShiftDay
+          value={dayShift}
+          onChange={setDayShift}>
+          <S.OptionShiftDay label='Manhã' value='Manhã' />
+          <S.OptionShiftDay label='Tarde' value='Tarde' />
+          <S.OptionShiftDay label='Noite' value='Noite' />
+        </S.SelectShiftDay>
+      </FieldInput>
       <ActionButtonsBlock handleClick={handleSave} title='Salvar Evento'/>
     </S.Container>
   </ViewContent>

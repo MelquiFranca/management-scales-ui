@@ -5,14 +5,11 @@ export const Form = styled.div`
   gap: 30;
   padding: 10px;
   flex-direction: column;
-`
+  `
   export const Container = styled.div`
-  flex: 1;
+  flex-direction: column;
   background-color: ${({ theme }) => theme.secondary};
-  padding: 30px 10px;
-  justify-content: center;
-  align-items: space-between;
-  z-index: 5;
+  width: 100%;
 `
 export const SelectShiftDay = styled.select`
   background-color: ${({ theme }) => theme.secondary};
@@ -33,11 +30,4 @@ export const SaveButton = styled.div`
   font-size: 1rem;
 `
 export const SaveButtonText = styled.div`
-`
-export const ContainerCalendar = styled.div`
-  padding: 5px;
-`
-export const Label = styled.div`
-  color: ${({ theme }) => theme.secondaryFont};
-  font-size: 1rem;
 `

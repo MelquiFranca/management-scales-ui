@@ -7,6 +7,7 @@ export const Container = styled.div`
   align-items: center;
   gap: 5px;
   padding: 10px 0;
+  width: 100%;
 `
 export const FieldIcon = styled.div`
   align-items: center;
@@ -25,6 +26,7 @@ export const Label = styled.div`
   min-width: 50px;
   color: ${({ theme }) => theme.primaryFont};
   font-size: 1rem;
+  font-weight: bold;
 `
 export const InputText = styled.input`
   font-size: 1rem;

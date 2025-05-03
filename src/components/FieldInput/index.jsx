@@ -15,7 +15,7 @@ const FieldInput = ({
   return (
     <S.Container>
       <S.FieldIcon>
-        {/* <S.Image iconName size={25}></S.Image> */}
+        {iconName && <S.Image iconName size={25}></S.Image>}
       </S.FieldIcon>
       <S.Input>
         <S.Label>{label}</S.Label>
