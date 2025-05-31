@@ -18,7 +18,7 @@ export const ActivatedFunctionsBlock = styled.div`
   background-color: ${({ theme }) => theme.primary};
   padding: 20px 10px;
   gap: 15px;
-  `
+`
 export const Checkbox = styled.input.attrs({ type: 'checkbox' })`
 
 `
