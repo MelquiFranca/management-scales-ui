@@ -1,12 +1,6 @@
 import * as S from './style'
 
-const Modal = ({ visible = false, setVisible, title, message, redirectTo = null, navigation, children }) => {
-  const onClose = () => {
-    setVisible(false)
-    if(redirectTo) {
-      navigation.navigate(redirectTo, { updated: true })
-    }
-  }
+const Modal = ({ visible = false, title, message, onClose, children }) => {
   return visible && <S.Container>
     {children || 
     <><S.Title>

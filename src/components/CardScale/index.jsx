@@ -88,7 +88,7 @@ export default function CardScale ({
         </S.EditButton>
         {(editable && type)
           && <S.EditButton
-              fullEdit={true}
+              fullEdit={false}
               // onClick={() => handleClick(activeScreen, { ...event, eventId, rosteredMembers, _id, annotations }, navigation)}
             >
               Edit Scale
