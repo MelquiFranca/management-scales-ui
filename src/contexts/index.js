@@ -9,4 +9,6 @@ export const DataProvider = createContext({
   setScales: () => {},
   events: new Map(),
   setEvents: () => {},
+  user: {},
+  setUser: () => {},
 })

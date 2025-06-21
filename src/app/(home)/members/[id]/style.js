@@ -4,38 +4,35 @@ export const Container = styled.div`
   flex: 1;
   flex-direction: column;
   width: 100%;
+  padding: 10px 0;
 `
 export const ImageButton = styled.button`
   color: ${({ theme }) => theme.primaryFont};
   position: absolute;
   align-self: flex-end;
   padding: 10px;
-  border-radius: 50px;
-  right: 10px;
+  border-radius: 50%;
+  right: 30%;
+  bottom: 10px;
   background-color: ${({ theme }) => theme.red};
-  justify-content: center;
-  align-items: center;
-`
-export const ImageButtonNew = styled.button`
-  flex: 1;
-  padding: 5px;
-  border-radius: 100px;
-  background-color: ${({ theme }) => theme.red};
-  color: ${({ theme }) => theme.primaryFont};
   justify-content: center;
   align-items: center;
 `
 export const ImageEditor = styled.div`
+  position: relative;
   flex-direction: column;
   justify-content: center;
   align-self: center;
-  width: 100%;
-  height: 140px;
+  align-items: center;
+  width: 50%;
+  height: 160px;
 `
 export const Photo = styled.div`
   height: 100%;
-  width: 140px;
-  border-radius: 100px;
+  width: 160px;
+  border-radius: 50%;
+  border: 1px solid #55555588;
+  content-fit: cover;
 `
 export const actions = styled.div`
   justify-content: flex-end;

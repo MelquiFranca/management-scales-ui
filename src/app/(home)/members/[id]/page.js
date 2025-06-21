@@ -1,7 +1,6 @@
 'use client'
-import { useState, useEffect, use } from 'react'
+import { useState, useEffect, useContext } from 'react'
 import ViewContent from '@/components/ViewContent'
-import Modal from '@/components/Modal'
 import AlertMessage from '@/components/AlertMessage'
 import SeparatorContext from '@/components/SepatatorContext'
 import DeleteButton from '@/components/DeleteButton'
@@ -10,29 +9,18 @@ import FieldDate from '@/components/FieldDate'
 import ActionButtonsBlock from '@/components/ActionButtonsBlock'
 import * as S from './style'
 import { DataProvider } from '@/contexts'
-import { useContext } from 'react'
-import { postMember } from '@/api'
+import { redirect } from 'next/navigation'
+import { putMember } from '@/commons/api'
 
 export default function HandleMembers ({ navigation, params }) {
   const { setMembers, members } = useContext(DataProvider)
   const [member, setMember] = useState({})
-  const [modalVisible, setModalVisible] = useState(false)
   const [modalAlertVisible, setModalAlertVisible] = useState(false)
-  const [modalMessage, setModalMessage] = useState('')
-  const [modalTitle, setModalTitle] = useState('')
-  const [redirectTo, setRedirectTo] = useState(null)
   const [password, setPassword] = useState('')
   const [capturedImage, setCapturedImage] = useState(null)
   const [calendarVisible, setCalendarVisible] = useState(false)
   const [editable, setEditable] = useState(true)
 
-  const showModal = ({ message, title, success }) => {
-    setModalAlertVisible(false)
-    setModalMessage(message)
-    setModalTitle(title)
-    setModalVisible(true)
-    setRedirectTo(success ? 'Membros' : null)
-  }
   const handleClickCamera = async () => {
     const { canceled, assets: [image] } = await ImagePicker.launchImageLibraryAsync({
       mediaTypes: ImagePicker.MediaTypeOptions.Images,
@@ -43,20 +31,16 @@ export default function HandleMembers ({ navigation, params }) {
     if(!canceled) setCapturedImage(image)
   }
   const handleSave = async () => {
-    const result = postMember(member.id, member)
+    const result = await putMember(member._id, member)
     if(result.id) {
       const updatedMembers = new Map(members)
       updatedMembers.set(member._id, member)
       setMembers(updatedMembers)
     }
-    showModal(result)
+    redirect('/members')
   }
   const handleDelete = async () => {
-    if(!params?.id) return showModal({ 
-      message: 'Nenhum membro informado',
-      success: false,
-      title: 'Erro'
-    })
+    if(!params?.id) return
     // const result = postMember(member.id, member)
     // if(result.success) {
     //   await updateDateStorage({ service: MembersService, set: setMembersList, groupId })        
@@ -65,35 +49,43 @@ export default function HandleMembers ({ navigation, params }) {
     // showModal(result)
   }
   useEffect(() => {
-    if (params?.id && members.has(params.id)) {
-      setMember(members.get(params.id))
+    const { id } = params || {}
+    if (id && members.has(id)) {
+      setMember(members.get(id))
       setEditable(true)
     }
-  }, [])
+  }, [params, members])
   // useEffect(() => {
   //   const photo = capturedImage?.base64 ? `data:image/jpeg;base64,${capturedImage?.base64}` : params?.photo
   //   setPhotoMember(photo)
   // }, [capturedImage])
-  const handleUpdate = (field, value) => {
+  const handleUpdateField = (field, value) => {
     const updatedMember = { ...member }
     updatedMember[field] = value
     setMember(updatedMember)
   }
-  return <ViewContent allDisplay>
-    <Modal
+  return <ViewContent allDisplay={true}>
+    {/* <Modal
       visible={modalVisible}
       setVisible={setModalVisible}
       redirectTo={redirectTo}
       navigation={navigation}
       message={modalMessage}
       title={modalTitle}
-    />
+    /> */}
     <AlertMessage
       message='Deseja realmente excluir este Membro?'
       title='Confirmação'
       visible={modalAlertVisible}
       setVisible={setModalAlertVisible}
       handleConfirm={handleDelete}
+    />
+    <AlertMessage
+      message='Deseja Salvar/Atualizar este Membro?'
+      title='Confirmação'
+      visible={modalAlertVisible}
+      setVisible={setModalAlertVisible}
+      handleConfirm={handleSave}
     />
     <SeparatorContext label='Dados do Membro'>
       {editable && <DeleteButton
@@ -103,14 +95,9 @@ export default function HandleMembers ({ navigation, params }) {
     </SeparatorContext>
     <S.Container>
       <S.ImageEditor>
-        {
-          member?.photo && <S.Photo
-            source={member.photo}
-            contentFit='cover'
-          />
-        }
+        <S.Photo source={member.photo} />
         <S.ImageButton onClick={handleClickCamera}>
-          Imagem
+          Cam
           {/* <Icons name='camera' size={photoMember ? 30 : 90} color={COLORS.primaryBorder} /> */}
         </S.ImageButton>
       </S.ImageEditor>
@@ -119,7 +106,7 @@ export default function HandleMembers ({ navigation, params }) {
         label='Nome'
         iconName='user'
         editable={editable}
-        setValue={(value) => handleUpdate('name', value)}
+        setValue={(value) => handleUpdateField('name', value)}
         value={member?.name}
       />
       <FieldInput
@@ -128,7 +115,7 @@ export default function HandleMembers ({ navigation, params }) {
         type='username'
         iconName='envelope'
         editable={editable}
-        setValue={(value) => handleUpdate('username', value)}
+        setValue={(value) => handleUpdateField('username', value)}
         value={member?.username}
       />
       <FieldInput
@@ -147,7 +134,7 @@ export default function HandleMembers ({ navigation, params }) {
       >
         <FieldDate
           date={new Date(member?.birthday)}
-          handleDate={(value) => handleUpdate('birthday', value.toISOString())}
+          handleDate={(value) => handleUpdateField('birthday', value.toISOString())}
           setVisible={setCalendarVisible}
           visible={calendarVisible}
         />
@@ -159,7 +146,7 @@ export default function HandleMembers ({ navigation, params }) {
       >
         <S.Select
           value={member?.type}
-          onChange={({ target: { value } }) => handleUpdate('type', value)}
+          onChange={({ target: { value } }) => handleUpdateField('type', value)}
         >
           <S.Option label="Usuário" value='user'/>
           <S.Option label="Intermediário" value='controller'/>
@@ -167,6 +154,9 @@ export default function HandleMembers ({ navigation, params }) {
         </S.Select>
       </FieldInput>
     </S.Container>
-    <ActionButtonsBlock handleClick={handleSave} title='Salvar Usuario'/>
+    <ActionButtonsBlock
+      handleClick={() => setModalAlertVisible(true)}
+      title='Salvar Usuario'
+    />
   </ViewContent>
 }
