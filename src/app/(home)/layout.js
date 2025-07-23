@@ -2,25 +2,30 @@
 import Header from '@/components/Header'
 import * as S from './style'
 import MenuBar from '@/components/MenuBar'
-import ImageMock from '../../../public/assets/icon.png'
+import { useContext } from 'react'
+import { DataProvider } from '@/contexts'
 
-const mockGroup = {
-  name: 'Group Bobra'
-}
-const mockUser = {
-  name: 'Sunda Foo'
-}
 export default function Layout ({ children }) {
-  // const { setActiveScreen } = useContext(HandleCreateContext)
-  // const { loggedMember } = useContext(HandleLoadLoggedMembersContext)
-  // const { type, groupId } = loggedMember
+  const { groups,
+    activatedGroupId,
+    user,
+    activatedMenu,
+    setActivatedMenu
+  } = useContext(DataProvider)
   // useEffect(() => {
   //   worker.postMessage({ type: 'loggedMember', loggedMember })
   //   console.log('Configurações de socket realizadas com sucesso')
   // }, [groupId])
   return <S.Container>
-    <Header groups={[mockGroup, mockGroup]} user={mockUser} />
+    <Header
+      groups={groups}
+      user={user}
+      activatedGroupId={activatedGroupId}
+    />
     {children}
-    <MenuBar />
+    <MenuBar
+      activatedMenu={activatedMenu}
+      setActivatedMenu={setActivatedMenu}
+    />
   </S.Container>
 }
