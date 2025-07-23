@@ -19,7 +19,7 @@ export default function Page ({}) {
   ])
   const listIcons = ['icon 1', 'icon 2']
   // const handleSelectFunction = ({ target: { value }}) => setActivatedFunctions([...activatedFunctions, value])
-  return (<ViewContent allDisplay>
+  return (<ViewContent alldisplay>
     <S.Container>
       <SeparatorContext label='Funções para escala' />
       <FieldInput

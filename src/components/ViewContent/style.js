@@ -7,5 +7,5 @@ export const ViewContent = styled.div`
   width: 100%;
   background-color: ${({ theme }) => theme.secondary};
   flex: 1;
-  ${({ allDisplay }) => allDisplay && 'z-index: 25;'}
+  ${({ alldisplay }) => alldisplay ? 'z-index: 25;' : ''}
 `

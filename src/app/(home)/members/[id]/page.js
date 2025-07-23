@@ -64,7 +64,7 @@ export default function HandleMembers ({ navigation, params }) {
     updatedMember[field] = value
     setMember(updatedMember)
   }
-  return <ViewContent allDisplay={true}>
+  return <ViewContent alldisplay>
     {/* <Modal
       visible={modalVisible}
       setVisible={setModalVisible}
@@ -105,7 +105,6 @@ export default function HandleMembers ({ navigation, params }) {
         placeholderText='Insira o nome...'
         label='Nome'
         iconName='user'
-        editable={editable}
         setValue={(value) => handleUpdateField('name', value)}
         value={member?.name}
       />
@@ -114,7 +113,6 @@ export default function HandleMembers ({ navigation, params }) {
         label='Usuário'
         type='username'
         iconName='envelope'
-        editable={editable}
         setValue={(value) => handleUpdateField('username', value)}
         value={member?.username}
       />
@@ -122,7 +120,6 @@ export default function HandleMembers ({ navigation, params }) {
         placeholderText='Insira a senha...'
         label='Senha'
         iconName='eye-slash'
-        editable={editable}
         secureTextEntry={true}
         setValue={setPassword}
         value={password}
@@ -130,7 +127,6 @@ export default function HandleMembers ({ navigation, params }) {
       <FieldInput
         label='Data de Nascimento'
         iconName='calendar'
-        editable={editable}
       >
         <FieldDate
           date={new Date(member?.birthday)}
@@ -142,7 +138,6 @@ export default function HandleMembers ({ navigation, params }) {
       <FieldInput
         label='Tipo de Permissão'
         iconName='user-secret'
-        editable={editable}
       >
         <S.Select
           value={member?.type}

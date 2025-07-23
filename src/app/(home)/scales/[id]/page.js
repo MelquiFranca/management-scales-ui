@@ -179,7 +179,7 @@ export default function Page ({ navigation }) {
   //     setRosteredMembers(params?.rosteredMembers)
   //   }
   // }, [params?._id])
-  return <ViewContent allDisplay>
+  return <ViewContent alldisplay>
     <Modal
       visible={modalVisible}
       setVisible={setModalVisible}
