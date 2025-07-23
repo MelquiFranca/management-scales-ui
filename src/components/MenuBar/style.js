@@ -7,15 +7,14 @@ export const Container = styled.div`
   bottom: 0;
   left: 0;
   width: 100%;
-  padding: 10px;
   gap: 2px;
   background-color: ${({ theme }) => theme.secondary};
   border-top: 1px solid ${({ theme }) => theme.primary};
 `
 export const Button = styled.button`
   flex: 1;
-  padding: 15px;
-  background: none;
+  padding: 20px;
+  background: ${({ activatedMenu, theme }) => activatedMenu ? `${theme.primary}55` : 'none'};
   color: ${({ theme }) => theme.primaryFont};
   font-size: 1rem;
   display: flex;
