@@ -4,7 +4,7 @@ export const getTokenData = () => {
   const token = localStorage.getItem('management-squad-token')
   return jwt.decode(token, { complete: true })
 }
-export const verifyLocalTokenValidation = async () => {
+export const verifyLocalTokenValidation = () => {
   try {
     const token = localStorage.getItem('management-squad-token')
     if(!token) return false
