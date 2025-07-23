@@ -1,61 +1,33 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import FieldInput from '@/components/FieldInput'
 import ViewContent from '@/components/ViewContent'
 import ImageIcon from '../../../public/assets/icon.png'
 import * as S from './style'
-import Modal from '@/components/Modal'
 import AlertMessage from '@/components/AlertMessage'
 import ActionButtonsBlock from '@/components/ActionButtonsBlock'
+import { login } from '@/commons/api'
+import { useRouter } from 'next/navigation'
 
 export default function Page () {
+  const initialLoggedPage = '/scales'
   const [password, setPassword] = useState('')
-  const [email, setEmail] = useState('')
-  const [modalMessage, setModalMessage] = useState('')
-  const [modalVisible, setModalVisible] = useState(false)
+  const [username, setUsername] = useState('')
   const [modalAlertVisible, setModalAlertVisible] = useState(false)
-  const [modalTitle, setModalTitle] = useState('')
-  const [redirectTo, setRedirectTo] = useState(null)
-  // const { setItem } = useAsyncStorage('@loggedMember')
-  // const { setLoggedMember } = useContext(HandleLoadLoggedMembersContext)
-  useEffect(() => {
-    // subscription()
-  }, [])
-  const showModal = ({ message, title, success }) => {
-    setModalMessage(message)
-    setModalTitle(title)
-    setModalVisible(true)
-    setRedirectTo(success ? 'Escalas' : null)
-  }
+  const router = useRouter()
   const handleLogin = async () => {
     setModalAlertVisible(true)
-    // const result = await MembersService.validateLogin({ email, password })
-    // if(result.success) {
-    //   setItem(JSON.stringify(result.data))
-    //   setLoggedMember(result.data)
-    //   setModalAlertVisible(false)
-    //   setTimeout(() => navigation.navigate('Main'), 200)
-    //   return
-    // }
-    // showModal(result)
-    setModalAlertVisible(false)
+    const token = await login(username, password)
+    if (token.length) router.push(initialLoggedPage)
+    else setModalAlertVisible(false)
   }
   return (<ViewContent>
-    <Modal
-      visible={modalVisible}
-      setVisible={setModalVisible}
-      redirectTo={redirectTo}
-      navigation={navigation}
-      message={modalMessage}
-      title={modalTitle}
-    />
     <AlertMessage
       message='Aguarde enquanto validamos seu login...'
-      title={modalTitle}
+      title='Login'
       visible={modalAlertVisible}
       setVisible={setModalAlertVisible}
       activeActions={false}
-      customizeStyle={{ height: '60%' }}
     />
     <S.Container>
       <S.Image src={ImageIcon.src} />
@@ -63,9 +35,9 @@ export default function Page () {
         iconName='user'
         label='Email'
         type='text'
-        placeholderText='Insira seu email'
-        setValue={setEmail}
-        value={email}
+        placeholderText='Insira seu username'
+        setValue={setUsername}
+        value={username}
       />
       <FieldInput
         iconName='eye-slash'
