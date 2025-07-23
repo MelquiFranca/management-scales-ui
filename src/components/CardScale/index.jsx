@@ -13,8 +13,8 @@ export default function CardScale ({
   annotations,
   rosteredMembers,
   handleRemoveRosteredMember,
+  handleClick,
   // handleAnnotationNewScale,
-  navigation,
   expandCard = false,
   editable = false,
   membersEditable = false,
@@ -59,7 +59,6 @@ export default function CardScale ({
       handleAnnotationNewScale={handleAnnotationNewScale}
       updatedSponsor={updatedSponsor}
       data={annotations}
-      navigation={navigation}
     /> */}
     <S.Header>
       <Avatar size={25}/>
@@ -89,7 +88,7 @@ export default function CardScale ({
         {(editable && type)
           && <S.EditButton
               fullEdit={false}
-              // onClick={() => handleClick(activeScreen, { ...event, eventId, rosteredMembers, _id, annotations }, navigation)}
+              onClick={handleClick}
             >
               Edit Scale
           {/* <IconCommunity name='circle-edit-outline' size={25} color={COLORS.gray}/> */}

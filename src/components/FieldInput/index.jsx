@@ -5,9 +5,7 @@ const FieldInput = ({
   label,
   placeholderText,
   setValue,
-  editable = true,
   iconName,
-  customizedStyle,
   value = '',
   type = 'text',
   children
@@ -21,7 +19,6 @@ const FieldInput = ({
         <S.Label>{label}</S.Label>
         {children ? children : <S.InputText
           type={type}
-          editable={editable}
           placeholder={placeholderText}
           onChange={({ target }) => setValue(target.value)}
           value={value}
