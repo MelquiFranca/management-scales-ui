@@ -1,6 +1,7 @@
+'use client'
 import { createContext } from 'react'
 
-export const DataProvider = createContext({
+export const contentContext = {
   members: new Map(),
   setMembers: () => {},
   groups: new Map(),
@@ -11,4 +12,10 @@ export const DataProvider = createContext({
   setEvents: () => {},
   user: {},
   setUser: () => {},
-})
+  activatedGroupId: null,
+  setActivatedGroupId: () => {},
+  activatedMenu: 0,
+  setActivatedMenu: () => {}
+}
+
+export const DataProvider = createContext(contentContext)
