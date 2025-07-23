@@ -10,38 +10,10 @@ import { useState } from 'react'
 // import EditConfigButton from '../components/EditConfigButton'
 // import CultsService from '../services/CultsService'
 import ViewContent from '@/components/ViewContent'
-import { getDay } from '@/components/utils'
 import * as S from './style'
+import EventsList from './events'
 
-const EventItem = ({
-  data,
-  activeScreen,
-  handleClick,
-  navigation,
-  unavaliable,
-  activatedConfig,
-  handleCheckUnavaliable
-}) => {
-  const [unavaliableItem, setUnabaliable] = useState(unavaliable)
-  const handleUnavaliable = () => {
-    handleCheckUnavaliable(data._id, !unavaliableItem)
-    setUnabaliable(!unavaliableItem)
-  }
-  return <S.ContentInline>
-    <S.CheckBox
-      onClick={handleUnavaliable}
-      disabled={!activatedConfig}
-    >
-      {/* <Icons name={unavaliableItem ? 'close' : 'checkbox'} size={30} color={activatedConfig ? (unavaliableItem ? COLORS.red : COLORS.gray) : COLORS.dark}/> */}
-    </S.CheckBox>
-    <S.EditButton onClick={() => handleClick && handleClick(activeScreen, data, navigation)}>
-      <S.ContentText>{data.date}</S.ContentText>
-      <S.ContentText>{getDay(new Date())}</S.ContentText>
-      <S.ContentText>{data.dayShift}</S.ContentText>
-    </S.EditButton>
-  </S.ContentInline>
-}
-export default function Page ({ navigation }) {
+export default function Page ({}) {
   // const { activeScreen, handleClick } = useContext(HandleCreateContext)
   // const { getItem, setItem: setCultsList } = useAsyncStorage('@events')
   // const { setItem: setScalesStorage } = useAsyncStorage('@scales')
@@ -209,18 +181,7 @@ export default function Page ({ navigation }) {
       <S.HeaderText>Dia Semana</S.HeaderText>
       <S.HeaderText>Turno</S.HeaderText>
     </S.ContentInlineHeader>
-    {<S.Container>
-      {events?.map((event, index) => <EventItem
-        data={event}
-        // activeScreen={activeScreen}
-        // handleClick={type && handleClick}
-        key={index}
-        navigation={navigation}
-        // unavaliable={event.unavaliableMembers.includes(loggedMemberId)}
-        activatedConfig={activatedConfig}
-        handleCheckUnavaliable={changeAvaliableList}
-      />)}
-    </S.Container>}
+    <EventsList events={events} />
     {/* <EditConfigButton
       handleClickEdit={handleClickEdit}
       handleClickConfirm={handleClickAnswerAvaiableToCult}
